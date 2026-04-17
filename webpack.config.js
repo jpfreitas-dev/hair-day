@@ -22,7 +22,17 @@ module.exports = {
   },
 
   plugins: [new HTMLWebpackPlugin({
-    template: path.resolve(__dirname, 'index.html') // Template HTML para gerar o arquivo final
+    template: path.resolve(__dirname, 'index.html'), // Template HTML para gerar o arquivo final
+    favicon: path.resolve(__dirname, 'src', 'assets', 'scissors.svg') // Ícone do site
   }),
-  ]
+  ],
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/, // Aplica esta regra a arquivos .css
+        use: ["style-loader", "css-loader"], // Usa style-loader e css-loader para processar arquivos CSS
+      }
+    ]
+  }
 }
