@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   target: 'web', // Define o ambiente de destino como web
@@ -25,7 +26,15 @@ module.exports = {
     template: path.resolve(__dirname, 'index.html'), // Template HTML para gerar o arquivo final
     favicon: path.resolve(__dirname, 'src', 'assets', 'scissors.svg') // Ícone do site
   }),
-  ],
+  new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: path.resolve(__dirname, 'src', 'assets'), // Diretório de origem dos arquivos a serem copiados
+        to: path.resolve(__dirname, 'dist', 'src', 'assets') // Diretório de destino para os arquivos copiados
+      }
+    ]
+  }
+  )],
 
   module: {
     rules: [
