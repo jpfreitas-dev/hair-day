@@ -1,4 +1,5 @@
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   target: 'web', // Define o ambiente de destino como web
@@ -18,5 +19,10 @@ module.exports = {
     port: 3000,
     open: true, // Abre o navegador automaticamente
     liveReload: true // Habilita recarregamento automático
-  }
+  },
+
+  plugins: [new HTMLWebpackPlugin({
+    template: path.resolve(__dirname, 'index.html') // Template HTML para gerar o arquivo final
+  }),
+  ]
 }
