@@ -41,7 +41,17 @@ module.exports = {
       {
         test: /\.css$/, // Aplica esta regra a arquivos .css
         use: ["style-loader", "css-loader"], // Usa style-loader e css-loader para processar arquivos CSS
+      },
+      {
+        test: /\.js$/, // Aplica esta regra a arquivos .js
+        exclude: /node_modules/, // Exclui a pasta node_modules
+        use: {
+          loader: 'babel-loader', // Usa babel-loader para transpilar arquivos JavaScript
+          options: {
+            presets: ['@babel/preset-env'] // Usa o preset-env para garantir compatibilidade com navegadores mais antigos
+          }
+        }
       }
-    ]
-  }
+    ],
+  },
 }
