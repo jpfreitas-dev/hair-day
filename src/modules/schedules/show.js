@@ -18,8 +18,8 @@ export function schedulesShow({ dailySchedules }) {
       const time = document.createElement("strong");
       const name = document.createElement("span");
 
-      // Adiciona o id do agendamento como atributo data-id
-      item.setAttribute("data-id", schedule.id);
+      // Adiciona o id do agendamento como atributo data-id, esse dataset é utilizado para identificar o agendamento que será cancelado
+      item.setAttribute("data-id", schedule.id); 
 
       time.textContent = dayjs(schedule.when).format("HH:mm");
       name.textContent = schedule.name;
