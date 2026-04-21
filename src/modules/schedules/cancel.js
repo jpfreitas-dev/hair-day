@@ -21,7 +21,7 @@ periods.forEach((period) => {
           await scheduleCancel({ id }); 
 
           // Recarrega os agendamentos
-          schedulesDay(); 
+          schedulesDay();
 
         }
       }

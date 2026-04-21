@@ -42,7 +42,7 @@ form.onsubmit = async (event) => {
     const when = dayjs(selectedDate.value).add(hour, "hour");
 
     // Gera um ID
-    const id = new Date().getTime();
+    const id = String(new Date().getTime());
 
     // Realiza o agendamento com o método POST do fetch
     await scheduleNew({ id, name, when });
