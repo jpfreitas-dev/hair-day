@@ -16,10 +16,13 @@ export function hoursLoad({ date , dailySchedules }) {
     // Recupera somente a hora
     const [scheduleHour] = hour.split(":");
 
+    // Normaliza o formato para comparar com a lista ocupada (HH:mm)
+    const hourFormatted = hour.padStart(5, "0");
+
     // Adiciona a hora na date e verifica se está no passado
     const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs());
 
-    const available = !unavailableHours.includes(hour) && !isHourPast;
+    const available = !unavailableHours.includes(hourFormatted) && !isHourPast;
     
     return ({
       hour,

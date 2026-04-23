@@ -36,7 +36,7 @@ export function schedulesShow({ dailySchedules }) {
       // Obtém somente a hora
       const hour = dayjs(schedule.when).hour();
 
-      // Renderiza o agendamento na sessão correta
+
       if (hour <= 12) {
         periodMorning.appendChild(item);
       } else if (hour <= 17) {
